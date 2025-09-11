@@ -1,4 +1,6 @@
-import express from "express";
+import { Router } from "express";
+import {studentController} from "../controllers/student.controller";
 
-export const studentRouter = express.Router()
-studentRouter.use(express.json());
+export const studentRouter = Router();
+
+studentRouter.get('/', studentController.getAll);

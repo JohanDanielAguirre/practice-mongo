@@ -1,13 +1,13 @@
 import {StudentDocument, StudentModel} from "../models/Student.model.js";
-
-export class StudentService {
-    async findAllStudents(): Promise<StudentDocument[]> {
-        try {
-            const students: StudentDocument[] = await StudentModel.find();
+class StudentService{
+    async findAll(): Promise<StudentDocument[]>{
+        try{
+            const students : StudentDocument[] = await StudentModel.find();
             return students;
-        }catch (error) {
-            console.log(error);
+        }catch(error){
+            console.log("🚀 ~ :8 ~ StudentService ~ findAll ~ error:", error);
             throw error;
         }
     }
 }
+export const studentService = new StudentService();
