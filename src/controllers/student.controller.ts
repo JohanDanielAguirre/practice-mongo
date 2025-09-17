@@ -52,7 +52,7 @@ class StudentController {
     async update(req: Request, res: Response) {
         try {
             const email = req.params.email;
-            const student: StudentDocument | null = await studentService.update(email,req.body as StudentInput);
+            const student = await studentService.update(email,req.body as StudentInput);
             if(student === null){
                 res.status(400).json({message: `USER ${email} not found`});
             }
